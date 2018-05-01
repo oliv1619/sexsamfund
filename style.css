@@ -3,6 +3,9 @@ body {
 	padding: 0;
 }
 
+
+/*- - - - - scene - - - - - */
+
 #scene {
 	width: 100vw;
 	height: 56vw;
@@ -14,18 +17,17 @@ body {
 #baggrund {
 	width: 100vw;
 	height: 56vw;
-	background-image: url(scene_baggrund.svg);
+	background-image: url(images/scene_baggrund.svg);
 	background-size: 100%;
 	position: absolute;
 	z-index: 1;
 	pointer-events: none;
-
 }
 
 #mellemgrund {
 	width: 100vw;
 	height: 56vw;
-	background-image: url(scene_mellemgrund.svg);
+	background-image: url(images/scene_mellemgrund.svg);
 	background-size: 100%;
 	position: absolute;
 	z-index: 20;
@@ -35,7 +37,7 @@ body {
 #mellemgrund_2 {
 	width: 100vw;
 	height: 56vw;
-	background-image: url(scene_mellemgrund_2.svg);
+	background-image: url(images/scene_mellemgrund_2.svg);
 	background-size: 100%;
 	position: absolute;
 	z-index: 35;
@@ -45,17 +47,69 @@ body {
 #forgrund {
 	width: 100vw;
 	height: 56vw;
-	background-image: url(scene_forgrund.svg);
+	background-image: url(images/scene_forgrund.svg);
 	background-size: 100%;
 	position: absolute;
 	z-index: 40;
 	pointer-events: none;
 }
 
+.vis {
+	display: block;
+}
+
+.skjul {
+	display: none;
+}
+
+/*- - - - - startbillede - - - - - */
+
+#startbillede {
+	width: 100vw;
+	height: 56vw;
+	background-color: #fff;
+	position: absolute;
+	z-index: 40;
+}
+
+#starttekst {
+	width: 50vw;
+	height: 20vw;
+	top: 10vw;
+	left: 30vw;
+	font-size: 5vw;
+	font-family: verdana, sans-serif;
+	font-weight: bold;
+	position: absolute;
+	z-index: 40;
+}
+
+#startknap {
+	width: 15vw;
+	height: 5vw;
+	top: 25vw;
+	left: 45vw;
+	text-align: center;
+	color: #fff;
+	padding: 1vw;
+	font-size: 3vw;
+	font-family: verdana, sans-serif;
+	font-weight: bold;
+	background-color: orangered;
+	position: absolute;
+	z-index: 40;
+}
+
+#startknap:hover {
+	background-color: #000;
+}
+
+/*- - - - - elever ind - - - - - */
+
 #zara {
 	width: 30vw;
 	height: 50vw;
-	background-image: url(spritesheet_zara.svg);
+	background-image: url(images/spritesheet_zara.svg);
 	background-size: 100%;
 	position: absolute;
 	background-position: 100% 0;
@@ -78,7 +132,7 @@ body {
 }
 
 #brian_sprite {
-	background-image: url(spritesheet_brian.svg);
+	background-image: url(images/spritesheet_brian.svg);
 	width: 30vw;
 	height: 50vw;
 	background-size: 100%;
@@ -121,7 +175,7 @@ body {
 }
 
 #anders_sprite {
-	background-image: url(spritesheet_anders.svg);
+	background-image: url(images/spritesheet_anders.svg);
 	width: 30vw;
 	height: 50vw;
 	background-size: 1200% 300%;
