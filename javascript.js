@@ -26,16 +26,14 @@ function startknapKlik() {
 	$("#game_start")[0].play();
 
 	//  Når lyden har spillet spillet
-	$("#game_start").on("ended", eleverInd);
-
+	setTimeout(eleverInd, 500);
 }
 
 function eleverInd() {
 	console.log("eleverInd");
 
-	//	Startbillede skjules
-	$("#startbillede").removeClass("vis");
-	$("#startbillede").addClass("skjul");
+	//	Startbillede fades
+	$("#startbillede").addClass("fadeout");
 
 
 	//	Brian & anders ind
@@ -54,14 +52,19 @@ function eleverInd() {
 
 function alle_seatter_sig() {
 	console.log("alle_seatter_sig!")
+
+	$("#startbillede").removeClass("vis");
+	$("#startbillede").addClass("skjul");
+
 	$("#anders_sprite").removeClass("anders_walk_cycle");
 	$("#brian_sprite").removeClass("brian_stand");
 	$("#brian_container").off("animationend", alle_seatter_sig);
 	$("#brian_sprite").addClass("brian_sit");
-	setTimeout(lyd_mobil, 3000);
+	setTimeout(lyd_mobil, 1500);
 }
 
 function lyd_mobil() {
 	console.log("lyd_mobil!")
 	$("#mobil")[0].play();
+	$("#anders_container").addClass("anders_mobil_ryster");
 }

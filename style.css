@@ -13,7 +13,6 @@ body {
 	overflow: hidden;
 }
 
-
 #baggrund {
 	width: 100vw;
 	height: 56vw;
@@ -76,9 +75,9 @@ body {
 	width: 50vw;
 	height: 20vw;
 	top: 10vw;
-	left: 30vw;
+	left: 28vw;
 	font-size: 5vw;
-	font-family: verdana, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: bold;
 	position: absolute;
 	z-index: 40;
@@ -87,26 +86,50 @@ body {
 #startknap {
 	width: 15vw;
 	height: 5vw;
-	top: 25vw;
-	left: 45vw;
+	top: 26vw;
+	left: 41vw;
 	text-align: center;
 	color: #fff;
 	padding: 1vw;
-	font-size: 3vw;
-	font-family: verdana, sans-serif;
+	font-size: 3.5vw;
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
 	font-weight: bold;
-	background-color: orangered;
+	background-color: #ffce00;
 	position: absolute;
 	z-index: 40;
+	border-radius: 2vw;
 }
 
 #startknap:hover {
 	background-color: #000;
 }
 
+.fadeout {
+	animation-name: fadeout_kf;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fadeout_kf {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
 /*- - - - - elever ind - - - - - */
 
-#zara {
+#zara_container {
+	position: absolute;
+	z-index: 5;
+}
+
+#zara_sprite {
 	width: 30vw;
 	height: 50vw;
 	background-image: url(images/spritesheet_zara.svg);
@@ -115,7 +138,6 @@ body {
 	background-position: 100% 0;
 	left: 51vw;
 	top: 5vw;
-	z-index: 5;
 }
 
 #brian_container {
@@ -156,7 +178,7 @@ body {
 		bottom: -15.5vw;
 	}
 	100% {
-		left: 75vw;
+		left: 74vw;
 		bottom: -15.5vw;
 	}
 }
@@ -176,8 +198,8 @@ body {
 
 #anders_sprite {
 	background-image: url(images/spritesheet_anders.svg);
-	width: 30vw;
-	height: 50vw;
+	width: 33.5vw;
+	height: 55.5vw;
 	background-size: 1200% 300%;
 }
 
@@ -201,11 +223,57 @@ body {
 @keyframes anders_move_right_kf {
 	0% {
 		left: -30vw;
-		bottom: -1vw;
+		bottom: 0vw;
 	}
 
 	100% {
-		left: 18vw;
-		bottom: -1vw;
+		left: 16vw;
+		bottom: 0vw;
+	}
+}
+
+.anders_mobil_ryster {
+	left: 16vw;
+	bottom: 0vw;
+	animation-name: anders_mobil_ryster_kf;
+	animation-duration: 0.5s;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+
+@keyframes anders_mobil_ryster_kf {
+	0% {
+		transform: rotate(0deg);
+	}
+	10% {
+		transform: rotate(-2deg);
+	}
+	20% {
+		transform: rotate(3deg);
+	}
+	30% {
+		transform: rotate(-2deg);
+	}
+	40% {
+		transform: rotate(3deg);
+	}
+	50% {
+		transform: rotate(-2deg);
+	}
+	60% {
+		transform: rotate(3deg);
+	}
+	70% {
+		transform: rotate(-2deg);
+	}
+	80% {
+		transform: rotate(3deg);
+	}
+	90% {
+		transform: rotate(-3deg);
+	}
+	100% {
+		transform: rotate(0deg);
 	}
 }
