@@ -103,18 +103,35 @@ function mobilPossition() {
 	$("#mobil_container").addClass("vis");
 
 	$("#mobil_container").addClass("mobil_possition");
+	$("#mobil_sprite").addClass("vis_besked");
 
 	$("#zoomframe").addClass("mobil_frem_zoom");
 
-	$("#zoomframe").on("animationend", MobilFrem);
+	setTimeout(mobilFrem, 1000);
 }
 
+function mobilFrem() {
+	console.log("mobilFrem!")
 
-function MobilFrem() {
-	console.log("MobilFrem!")
-
-	$("#zoomframe").off("animationend", MobilFrem);
 
 	$("#mobil_container").addClass("sving_mobil_frem");
 
+	setTimeout(beskedZoom, 1500);
+
+}
+
+function beskedZoom() {
+	console.log("beskedZoom!")
+
+	$("#zoomframe").removeClass("mobil_frem_zoom");
+	$("#zoomframe").addClass("mobil_besked_zoom");
+
+	setTimeout(visBillede, 3000);
+}
+
+function visBillede() {
+	console.log("visBillede!")
+
+	$("#mobil_sprite").removeClass("vis_besked");
+	$("#mobil_sprite").addClass("vis_billede");
 }

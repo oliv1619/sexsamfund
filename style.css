@@ -344,7 +344,6 @@ body {
 	height: 10.41vw;
 	z-index: 15;
 	transform-origin: center 90%;
-
 }
 
 .mobil_possition {
@@ -371,14 +370,38 @@ body {
 	}
 }
 
-
 #mobil_sprite {
 	width: 7.81vw;
 	height: 10.41vw;
 	top: 0;
 	left: 0;
-	background-image: url(images/mobil_arm.svg);
-	background-size: 100%;
+	background-image: url(images/arm_med_mobil_spritesheet.svg);
+	background-size: 100% 300%;
 	position: absolute;
-	background-position: 0% 0%;
+}
+
+.mobil_besked_zoom {
+	animation-name: mobil_besked_zoom_kf;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes mobil_besked_zoom_kf {
+	0% {
+		transform: scale(2.25) translateX(7vw) translateY(3vw);
+	}
+	100% {
+		transform: scale(12) translateX(8vw) translateY(-1vw);
+	}
+}
+
+.vis_besked {
+	background-position: 0 0;
+}
+
+.vis_billede {
+	background-position: 0 -100%;
 }
