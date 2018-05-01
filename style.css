@@ -1,136 +1,157 @@
 body {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 #scene {
-    width: 100vw;
-    height: 56vw;
-    position: relative;
-    overflow: hidden;
+	width: 100vw;
+	height: 56vw;
+	position: relative;
+	overflow: hidden;
 }
 
 
 #baggrund {
-    width: 100vw;
-    height: 56vw;
-    background-image: url(scene_baggrund.svg);
-    background-size: 100%;
-    position: absolute;
+	width: 100vw;
+	height: 56vw;
+	background-image: url(scene_baggrund.svg);
+	background-size: 100%;
+	position: absolute;
+	z-index: 1;
+	pointer-events: none;
 
 }
 
 #mellemgrund {
-    width: 100vw;
-    height: 56vw;
-    background-image: url(scene_mellemgrund.svg);
-    background-size: 100%;
-    position: absolute;
+	width: 100vw;
+	height: 56vw;
+	background-image: url(scene_mellemgrund.svg);
+	background-size: 100%;
+	position: absolute;
+	z-index: 20;
+	pointer-events: none;
+}
+
+#mellemgrund_2 {
+	width: 100vw;
+	height: 56vw;
+	background-image: url(scene_mellemgrund_2.svg);
+	background-size: 100%;
+	position: absolute;
+	z-index: 35;
+	pointer-events: none;
 }
 
 #forgrund {
-    width: 100vw;
-    height: 56vw;
-    background-image: url(scene_forgrund.svg);
-    background-size: 100%;
-    position: absolute;
+	width: 100vw;
+	height: 56vw;
+	background-image: url(scene_forgrund.svg);
+	background-size: 100%;
+	position: absolute;
+	z-index: 40;
+	pointer-events: none;
 }
 
 #zara {
-    width: 30vw;
-    height: 50vw;
-    background-image: url(spritesheet_zara.svg);
-    background-size: 100%;
-    position: absolute;
-    background-position: 100% 0;
-    left: 51vw;
-    top: 5vw;
+	width: 30vw;
+	height: 50vw;
+	background-image: url(spritesheet_zara.svg);
+	background-size: 100%;
+	position: absolute;
+	background-position: 100% 0;
+	left: 51vw;
+	top: 5vw;
+	z-index: 5;
 }
 
 #brian_container {
-    position: absolute;
+	position: absolute;
+	z-index: 35;
 }
 
 .brian_move_right {
-    animation-name: brian_move_right_kf;
-    animation-duration: 10s;
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-    animation-timing-function: linear;
+	animation-name: brian_move_right_kf;
+	animation-duration: 6s;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+	animation-timing-function: linear;
 }
 
 #brian_sprite {
-    background-image: url(spritesheet_brian.svg);
-    width: 30vw;
-    height: 50vw;
-    background-size: 100%;
+	background-image: url(spritesheet_brian.svg);
+	width: 30vw;
+	height: 50vw;
+	background-size: 100%;
 }
 
 .brian_stand {
-      background-position: 0 -200%;
+	background-position: 0 -200%;
 }
+
 .brian_sit {
-      background-position: 0 0;
+	background-position: 0 0;
 }
+
 .brian_front {
-      background-position: 0 -100%;
+	background-position: 0 -100%;
 }
 
 @keyframes brian_move_right_kf {
-    0% {
-        left: -30vw;
-        bottom: -15.5vw;
-    }
-    100% {
-        left: 75vw;
-        bottom: -15.5vw;
-    }
+	0% {
+		left: -30vw;
+		bottom: -15.5vw;
+	}
+	100% {
+		left: 75vw;
+		bottom: -15.5vw;
+	}
 }
 
 #anders_container {
-    position: absolute;
+	position: absolute;
+	z-index: 30;
 }
 
 .anders_move_right {
-     animation-name: anders_move_right_kf;
-    animation-duration: 10s;
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-    animation-timing-function: linear;
+	animation-name: anders_move_right_kf;
+	animation-duration: 6s;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+	animation-timing-function: linear;
 }
 
 #anders_sprite {
-    background-image: url(spritesheet_anders.svg);
-    width: 30vw;
-    height: 50vw;
-    background-size: 1200% 300%;
+	background-image: url(spritesheet_anders.svg);
+	width: 30vw;
+	height: 50vw;
+	background-size: 1200% 300%;
 }
 
 .anders_walk_cycle {
-    animation-name: anders_walk_cycle_kf;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
-    animation-timing-function: steps(12);
+	animation-name: anders_walk_cycle_kf;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-fill-mode: both;
+	animation-timing-function: steps(12);
 }
 
 @keyframes anders_walk_cycle_kf {
-    0% {
-        background-position: 0 100%;
-    }
-    100% {
-        background-position: -1200% 100%;
-    }
+	0% {
+		background-position: 0 100%;
+	}
+	100% {
+		background-position: -1200% 100%;
+	}
 }
 
 @keyframes anders_move_right_kf {
-    0% {
-        left: -30vw;
-        bottom: -1vw;
-    }
+	0% {
+		left: -30vw;
+		bottom: -1vw;
+	}
 
-    100% {
-        left: 18vw;
-        bottom: -1vw;
-    }
+	100% {
+		left: 18vw;
+		bottom: -1vw;
+	}
 }
