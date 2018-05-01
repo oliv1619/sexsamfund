@@ -1,6 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
 }
 
 
@@ -8,14 +9,21 @@ body {
 
 #scene {
 	width: 100vw;
-	height: 56vw;
+	height: 56.25vw;
+	position: relative;
+	overflow: hidden;
+}
+
+#zoomframe {
+	width: 100vw;
+	height: 56.25vw;
 	position: relative;
 	overflow: hidden;
 }
 
 #baggrund {
 	width: 100vw;
-	height: 56vw;
+	height: 56.25vw;
 	background-image: url(images/scene_baggrund.svg);
 	background-size: 100%;
 	position: absolute;
@@ -23,9 +31,20 @@ body {
 	pointer-events: none;
 }
 
+#baggrund_2 {
+	width: 100vw;
+	height: 56.25vw;
+	background-image: url(images/scene_baggrund_2.svg);
+	background-size: 100%;
+	position: absolute;
+	z-index: 10;
+	pointer-events: none;
+}
+
+
 #mellemgrund {
 	width: 100vw;
-	height: 56vw;
+	height: 56.25vw;
 	background-image: url(images/scene_mellemgrund.svg);
 	background-size: 100%;
 	position: absolute;
@@ -35,7 +54,7 @@ body {
 
 #mellemgrund_2 {
 	width: 100vw;
-	height: 56vw;
+	height: 56.25vw;
 	background-image: url(images/scene_mellemgrund_2.svg);
 	background-size: 100%;
 	position: absolute;
@@ -45,7 +64,7 @@ body {
 
 #forgrund {
 	width: 100vw;
-	height: 56vw;
+	height: 56.25vw;
 	background-image: url(images/scene_forgrund.svg);
 	background-size: 100%;
 	position: absolute;
@@ -61,11 +80,11 @@ body {
 	display: none;
 }
 
-/*- - - - - startbillede - - - - - */
+/*- - - - - scene startBillede - - - - - */
 
 #startbillede {
 	width: 100vw;
-	height: 56vw;
+	height: 56.25vw;
 	background-color: #fff;
 	position: absolute;
 	z-index: 40;
@@ -122,11 +141,11 @@ body {
 	}
 }
 
-/*- - - - - elever ind - - - - - */
+/*- - - - - scene eleverInd - - - - - */
 
 #zara_container {
 	position: absolute;
-	z-index: 5;
+	z-index: 15;
 }
 
 #zara_sprite {
@@ -145,6 +164,13 @@ body {
 	z-index: 35;
 }
 
+#brian_sprite {
+	background-image: url(images/spritesheet_brian.svg);
+	width: 30vw;
+	height: 50vw;
+	background-size: 100%;
+}
+
 .brian_move_right {
 	animation-name: brian_move_right_kf;
 	animation-duration: 6s;
@@ -153,11 +179,20 @@ body {
 	animation-timing-function: linear;
 }
 
-#brian_sprite {
-	background-image: url(images/spritesheet_brian.svg);
-	width: 30vw;
-	height: 50vw;
-	background-size: 100%;
+@keyframes brian_move_right_kf {
+	0% {
+		left: -30vw;
+		bottom: -15.5vw;
+	}
+	100% {
+		left: 74vw;
+		bottom: -15.5vw;
+	}
+}
+
+.brian_sidder_possition {
+	left: 74vw;
+	bottom: -15.5vw;
 }
 
 .brian_stand {
@@ -172,20 +207,16 @@ body {
 	background-position: 0 -100%;
 }
 
-@keyframes brian_move_right_kf {
-	0% {
-		left: -30vw;
-		bottom: -15.5vw;
-	}
-	100% {
-		left: 74vw;
-		bottom: -15.5vw;
-	}
-}
-
 #anders_container {
 	position: absolute;
 	z-index: 30;
+}
+
+#anders_sprite {
+	background-image: url(images/spritesheet_anders.svg);
+	width: 33.5vw;
+	height: 55.5vw;
+	background-size: 1200% 300%;
 }
 
 .anders_move_right {
@@ -196,11 +227,16 @@ body {
 	animation-timing-function: linear;
 }
 
-#anders_sprite {
-	background-image: url(images/spritesheet_anders.svg);
-	width: 33.5vw;
-	height: 55.5vw;
-	background-size: 1200% 300%;
+@keyframes anders_move_right_kf {
+	0% {
+		left: -50vw;
+		bottom: 0.27vw;
+	}
+
+	100% {
+		left: 16vw;
+		bottom: 0.27vw;
+	}
 }
 
 .anders_walk_cycle {
@@ -220,21 +256,18 @@ body {
 	}
 }
 
-@keyframes anders_move_right_kf {
-	0% {
-		left: -30vw;
-		bottom: 0vw;
-	}
+.anders_sidder_possition {
+	left: 16vw;
+	bottom: 0.27vw;
+}
 
-	100% {
-		left: 16vw;
-		bottom: 0vw;
-	}
+#anders_sit {
+	background-position: 0 0;
 }
 
 .anders_mobil_ryster {
 	left: 16vw;
-	bottom: 0vw;
+	bottom: 0.27vw;
 	animation-name: anders_mobil_ryster_kf;
 	animation-duration: 0.5s;
 	animation-iteration-count: 1;
@@ -247,33 +280,57 @@ body {
 		transform: rotate(0deg);
 	}
 	10% {
-		transform: rotate(-2deg);
+		transform: rotate(-1deg);
 	}
 	20% {
-		transform: rotate(3deg);
+		transform: rotate(2deg);
 	}
 	30% {
-		transform: rotate(-2deg);
+		transform: rotate(-1deg);
 	}
 	40% {
-		transform: rotate(3deg);
+		transform: rotate(2deg);
 	}
 	50% {
-		transform: rotate(-2deg);
+		transform: rotate(-1deg);
 	}
 	60% {
-		transform: rotate(3deg);
+		transform: rotate(2deg);
 	}
 	70% {
-		transform: rotate(-2deg);
+		transform: rotate(-1deg);
 	}
 	80% {
-		transform: rotate(3deg);
+		transform: rotate(2deg);
 	}
 	90% {
-		transform: rotate(-3deg);
+		transform: rotate(-1deg);
 	}
 	100% {
 		transform: rotate(0deg);
 	}
+}
+
+/*- - - - - scene mobilFrem - - - - - */
+
+.mobil_frem_zoom {
+	animation-name: mobil_frem_zoom_kf;
+	animation-duration: 2s;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes mobil_frem_zoom_kf {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(2.25) translateX(7vw) translateY(3vw);
+	}
+}
+
+.anders_armsving {
+	background-position: -100% 0;
 }
