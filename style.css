@@ -146,6 +146,7 @@ body {
 #zara_container {
 	position: absolute;
 	z-index: 15;
+	pointer-events: none;
 }
 
 #zara_sprite {
@@ -162,6 +163,7 @@ body {
 #brian_container {
 	position: absolute;
 	z-index: 35;
+	pointer-events: none;
 }
 
 #brian_sprite {
@@ -210,6 +212,7 @@ body {
 #anders_container {
 	position: absolute;
 	z-index: 30;
+	pointer-events: none;
 }
 
 #anders_sprite {
@@ -315,7 +318,7 @@ body {
 
 .mobil_frem_zoom {
 	animation-name: mobil_frem_zoom_kf;
-	animation-duration: 2s;
+	animation-duration: 1s;
 	animation-iteration-count: 1;
 	animation-fill-mode: both;
 	animation-timing-function: ease-in-out;
@@ -331,6 +334,51 @@ body {
 	}
 }
 
-.anders_armsving {
+.anders_mobil_frame {
 	background-position: -100% 0;
+}
+
+#mobil_container {
+	position: absolute;
+	width: 7.81vw;
+	height: 10.41vw;
+	z-index: 15;
+	transform-origin: center 90%;
+
+}
+
+.mobil_possition {
+	top: 25.7vw;
+	left: 35.6vw;
+	transform: rotate(-66.6deg);
+}
+
+.sving_mobil_frem {
+	animation-name: sving_mobil_frem_kf;
+	animation-duration: 0.5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes sving_mobil_frem_kf {
+	0% {
+		transform: rotate(-66.6deg);
+	}
+	100% {
+		transform: rotate(33.3deg);
+	}
+}
+
+
+#mobil_sprite {
+	width: 7.81vw;
+	height: 10.41vw;
+	top: 0;
+	left: 0;
+	background-image: url(images/mobil_arm.svg);
+	background-size: 100%;
+	position: absolute;
+	background-position: 0% 0%;
 }

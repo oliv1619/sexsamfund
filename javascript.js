@@ -9,6 +9,7 @@ function sideLoad() {
 
 	// vis startbillede
 	$("#startbillede").addClass("vis");
+	$("#mobil_container").addClass("skjul");
 
 	// gå til startbillede
 	startBillede();
@@ -86,21 +87,34 @@ function lyd_mobil() {
 	$("#mobil")[0].play();
 	$("#anders_container").addClass("anders_mobil_ryster");
 
-	//  Trigger - Når mobil har rystet
-
-	setTimeout(MobilFrem, 2000);
+	setTimeout(mobilPossition, 2000);
 }
 
+
 // - - - - - - - - Scene MobilFrem - - - - - - - -
+
+function mobilPossition() {
+	console.log("mobilPossition!")
+
+	$("#anders_sprite").removeClass("anders_sit");
+	$("#anders_sprite").addClass("anders_mobil_frame");
+
+	$("#mobil_container").removeClass("skjul");
+	$("#mobil_container").addClass("vis");
+
+	$("#mobil_container").addClass("mobil_possition");
+
+	$("#zoomframe").addClass("mobil_frem_zoom");
+
+	$("#zoomframe").on("animationend", MobilFrem);
+}
+
 
 function MobilFrem() {
 	console.log("MobilFrem!")
 
-	$("#anders_container").off("animationend", MobilFrem);
+	$("#zoomframe").off("animationend", MobilFrem);
 
-	$("#anders_sprite").removeClass("anders_sit");
-	$("#anders_sprite").addClass("anders_mobil");
+	$("#mobil_container").addClass("sving_mobil_frem");
 
-	$("#zoomframe").addClass("mobil_frem_zoom");
-	//	$("#baggrund").addClass("baggrund_blur");
 }
