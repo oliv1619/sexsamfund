@@ -99,6 +99,8 @@ function lyd_mobil() {
 function mobilPossition() {
 	console.log("mobilPossition!")
 
+	$("#anders_container").removeClass("anders_mobil_ryster");
+
 	$("#anders_sprite").removeClass("anders_sit");
 	$("#anders_sprite").addClass("anders_mobil_frame");
 
@@ -119,20 +121,24 @@ function mobilFrem() {
 
 	$("#mobil_container").addClass("sving_mobil_frem");
 
-	setTimeout(beskedZoom, 1500);
+	setTimeout(mobilBesked, 1500);
 }
 
-function beskedZoom() {
-	console.log("beskedZoom!")
+// - - - - - - - - Scene mobilBesked - - - - - - - -
+
+function mobilBesked() {
+	console.log("mobilBesked!")
 
 	$("#zoomframe").removeClass("mobil_frem_zoom");
 	$("#zoomframe").addClass("mobil_besked_zoom");
 
-	setTimeout(visBillede, 2750);
+	setTimeout(mobilBillede, 2750);
 }
 
-function visBillede() {
-	console.log("visBillede!")
+// - - - - - - - - Scene mobilBillede - - - - - - - -
+
+function mobilBillede() {
+	console.log("mobilBillede!")
 
 	$("#mobil_sprite").removeClass("vis_besked");
 	$("#mobil_sprite").addClass("vis_billede");
@@ -172,4 +178,24 @@ function VennerVilHaSlide() {
 
 	$("#zara_container").addClass("zara_slide");
 	$("#brian_container").addClass("brian_slide");
+
+	setTimeout(mobilValg, 3000);
+}
+
+function mobilValg() {
+	console.log("mobilValg!")
+
+	$("#baggrund_side").removeClass("vis");
+	$("#baggrund_side").addClass("skjul");
+	$("#baggrund").removeClass("skjul");
+	$("#baggrund").addClass("vis");
+
+	$("#mobil_sprite").removeClass("vis_billede");
+	$("#mobil_sprite").addClass("vis_tom_mobil");
+
+	$("#zara_container").removeClass("zara_vil_ha_possition");
+	$("#zara_container").addClass("zara_sidder_possition");
+
+	$("#zoomframe").removeClass("venner_vil_ha_zoom");
+	$("#zoomframe").addClass("mobil_besked_zoom");
 }

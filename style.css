@@ -522,3 +522,9 @@ body {
 		left: 0vw;
 	}
 }
+
+/*- - - - - scene mobilvalg - - - - - */
+
+.vis_tommobil {
+	background-position: 0 -200%;
+}
