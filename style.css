@@ -19,6 +19,7 @@ body {
 	height: 56.25vw;
 	position: relative;
 	overflow: hidden;
+	z-index: 1;
 }
 
 #baggrund {
@@ -145,7 +146,6 @@ body {
 
 #zara_container {
 	position: absolute;
-	z-index: 15;
 	pointer-events: none;
 }
 
@@ -155,14 +155,21 @@ body {
 	background-image: url(images/spritesheet_zara.svg);
 	background-size: 100%;
 	position: absolute;
-	background-position: 100% 0;
+
+}
+
+.zara_sidder_possition {
 	left: 51vw;
 	top: 5vw;
+	z-index: 15;
+}
+
+.zara_sit {
+	background-position: 0 0;
 }
 
 #brian_container {
 	position: absolute;
-	z-index: 35;
 	pointer-events: none;
 }
 
@@ -179,6 +186,7 @@ body {
 	animation-iteration-count: 1;
 	animation-fill-mode: both;
 	animation-timing-function: linear;
+	z-index: 35;
 }
 
 @keyframes brian_move_right_kf {
@@ -195,6 +203,7 @@ body {
 .brian_sidder_possition {
 	left: 74vw;
 	bottom: -15.5vw;
+	z-index: 35;
 }
 
 .brian_stand {
@@ -346,6 +355,16 @@ body {
 	transform-origin: center 90%;
 }
 
+#mobil_sprite {
+	width: 7.81vw;
+	height: 10.41vw;
+	top: 0;
+	left: 0;
+	background-image: url(images/arm_med_mobil_spritesheet.svg);
+	background-size: 100% 300%;
+	position: absolute;
+}
+
 .mobil_possition {
 	top: 25.7vw;
 	left: 35.6vw;
@@ -368,16 +387,6 @@ body {
 	100% {
 		transform: rotate(33.3deg);
 	}
-}
-
-#mobil_sprite {
-	width: 7.81vw;
-	height: 10.41vw;
-	top: 0;
-	left: 0;
-	background-image: url(images/arm_med_mobil_spritesheet.svg);
-	background-size: 100% 300%;
-	position: absolute;
 }
 
 .mobil_besked_zoom {
@@ -404,4 +413,112 @@ body {
 
 .vis_billede {
 	background-position: 0 -100%;
+}
+
+/*- - - - - scene VennerVilHa - - - - - */
+
+.venner_vil_ha_zoom {
+	transform: scale(1) translateX(0) translateY(0);
+}
+
+#baggrund_side {
+	width: 100vw;
+	height: 56.5vw;
+	background-image: url(images/scene_baggrund_side.svg);
+	background-size: 100%;
+	position: absolute;
+	z-index: 50;
+	pointer-events: none;
+}
+
+.zara_vil_ha_possition {
+	z-index: 55;
+	left: -50vw;
+	top: 0vw;
+	transform: scale(3) translateX(-6vw) translateY(-9.5vw);
+}
+
+.zara_front {
+	background-position: 0 -100%;
+}
+
+.brian_vil_ha_possition {
+	z-index: 55;
+	left: 50vw;
+	top: 0vw;
+	transform: scale(1.75) translateX(35vw) translateY(12vw);
+}
+
+.brian_front {
+	background-position: 0 -100%;
+}
+
+.zara_slide {
+	animation-name: zara_slide_kf;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes zara_slide_kf {
+	0% {
+		left: -50vw;
+	}
+	40% {
+		left: -0vw;
+	}
+	45% {
+		left: -3vw;
+	}
+	50% {
+		left: 0vw;
+	}
+	55% {
+		left: -1.5vw;
+	}
+	60% {
+		left: 0vw;
+	}
+	100% {
+		left: 0vw;
+	}
+}
+
+.brian_slide {
+	animation-name: brian_slide_kf;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes brian_slide_kf {
+	0% {
+		left: 50vw;
+	}
+	50% {
+		left: 50vw;
+	}
+	80% {
+		left: 0vw;
+	}
+	85% {
+		left: 3vw;
+	}
+	90% {
+		left: 0vw;
+	}
+	95% {
+		left: 1vw;
+	}
+	97% {
+		left: 0vw;
+	}
+	99% {
+		left: 0.5vw;
+	}
+	100% {
+		left: 0vw;
+	}
 }

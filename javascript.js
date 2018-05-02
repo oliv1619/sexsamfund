@@ -10,6 +10,7 @@ function sideLoad() {
 	// vis startbillede
 	$("#startbillede").addClass("vis");
 	$("#mobil_container").addClass("skjul");
+	$("#baggrund_side").addClass("skjul");
 
 	// gå til startbillede
 	startBillede();
@@ -42,6 +43,8 @@ function eleverInd() {
 	//	Startbillede fades
 	$("#startbillede").addClass("fadeout");
 
+	$("#zara_container").addClass("zara_sidder_possition");
+	$("#zara_sprite").addClass("zara_sit");
 
 	//	Brian & anders ind
 	$("#brian_container").addClass("brian_move_right");
@@ -87,7 +90,7 @@ function lyd_mobil() {
 	$("#mobil")[0].play();
 	$("#anders_container").addClass("anders_mobil_ryster");
 
-	setTimeout(mobilPossition, 2000);
+	setTimeout(mobilPossition, 1500);
 }
 
 
@@ -117,7 +120,6 @@ function mobilFrem() {
 	$("#mobil_container").addClass("sving_mobil_frem");
 
 	setTimeout(beskedZoom, 1500);
-
 }
 
 function beskedZoom() {
@@ -126,7 +128,7 @@ function beskedZoom() {
 	$("#zoomframe").removeClass("mobil_frem_zoom");
 	$("#zoomframe").addClass("mobil_besked_zoom");
 
-	setTimeout(visBillede, 3000);
+	setTimeout(visBillede, 2750);
 }
 
 function visBillede() {
@@ -134,4 +136,40 @@ function visBillede() {
 
 	$("#mobil_sprite").removeClass("vis_besked");
 	$("#mobil_sprite").addClass("vis_billede");
+
+	setTimeout(VennerVilHa, 2000);
+}
+
+// - - - - - - - - Scene vennerVilHa - - - - - - - -
+
+function VennerVilHa() {
+	console.log("VennerVilHa!")
+
+	$("#zoomframe").removeClass("mobil_besked_zoom");
+	$("#zoomframe").addClass("venner_vil_ha_zoom");
+
+	$("#baggrund").addClass("skjul");
+	$("#baggrund_side").removeClass("skjul");
+	$("#baggrund_side").addClass("vis");
+
+	$("#zara_container").removeClass("zara_sidder_possition");
+	$("#zara_container").addClass("zara_vil_ha_possition");
+
+	$("#zara_sprite").removeClass("zara_sit");
+	$("#zara_sprite").addClass("zara_front");
+
+	$("#brian_container").removeClass("brian_sidder_possition");
+	$("#brian_container").addClass("brian_vil_ha_possition");
+
+	$("#brian_sprite").removeClass("brian_sit");
+	$("#brian_sprite").addClass("brian_front");
+
+	VennerVilHaSlide()
+}
+
+function VennerVilHaSlide() {
+	console.log("VennerVilHaSlide!")
+
+	$("#zara_container").addClass("zara_slide");
+	$("#brian_container").addClass("brian_slide");
 }
