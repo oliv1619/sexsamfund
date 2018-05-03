@@ -11,6 +11,12 @@ function sideLoad() {
 	$("#startbillede").addClass("vis");
 	$("#mobil_container").addClass("skjul");
 	$("#baggrund_side").addClass("skjul");
+	$("#send_til_mig").addClass("skjul");
+	$("#ogsaa_til_mig").addClass("skjul");
+	$("#delknap").addClass("skjul");
+	$("#gemknap").addClass("skjul");
+	$("#konsekvens_gem").addClass("skjul");
+	$("#konsekvens_del").addClass("skjul");
 
 	// gå til startbillede
 	startBillede();
@@ -179,7 +185,32 @@ function VennerVilHaSlide() {
 	$("#zara_container").addClass("zara_slide");
 	$("#brian_container").addClass("brian_slide");
 
-	setTimeout(mobilValg, 3000);
+	$("#send_til_mig").removeClass("skjul");
+	$("#send_til_mig").addClass("vis");
+	$("#ogsaa_til_mig").removeClass("skjul");
+	$("#ogsaa_til_mig").addClass("vis");
+
+	setTimeout(VennerVilHaTalebobler, 2000);
+}
+
+function VennerVilHaTalebobler() {
+	console.log("VennerVilHaTalebobler!")
+
+	$("#send_til_mig").addClass("send_til_mig_vis");
+
+	$("#sendtilmig_lyd")[0].play();
+
+	setTimeout(VennerVilHaTalebobler2, 2000);
+}
+
+function VennerVilHaTalebobler2() {
+	console.log("VennerVilHaTalebobler2!")
+
+	$("#ogsaa_til_mig").addClass("ogsaa_til_mig_vis");
+
+	$("#ogstilmig_lyd")[0].play();
+
+	setTimeout(mobilValg, 2000);
 }
 
 function mobilValg() {
@@ -190,12 +221,61 @@ function mobilValg() {
 	$("#baggrund").removeClass("skjul");
 	$("#baggrund").addClass("vis");
 
-	$("#mobil_sprite").removeClass("vis_billede");
-	$("#mobil_sprite").addClass("vis_tom_mobil");
-
 	$("#zara_container").removeClass("zara_vil_ha_possition");
 	$("#zara_container").addClass("zara_sidder_possition");
 
 	$("#zoomframe").removeClass("venner_vil_ha_zoom");
 	$("#zoomframe").addClass("mobil_besked_zoom");
+
+	setTimeout(mobilKnapper, 2000);
+
+}
+
+function mobilKnapper() {
+	console.log("mobilKnapper!")
+
+	$("#mobil_sprite").removeClass("vis_billede");
+	$("#mobil_sprite").addClass("vis_nedtonet_mobil");
+
+	$("#gemknap").removeClass("skjul");
+	$("#gemknap").addClass("vis");
+	$("#gemknap").addClass("gem_knap_placering");
+
+	$("#delknap").removeClass("skjul");
+	$("#delknap").addClass("vis");
+	$("#delknap").addClass("del_knap_placering");
+
+	// Der er klikket på gem
+	$("#gemknap").on("click", gemknapKlik);
+
+	// Der er klikket på del
+	$("#delknap").on("click", delknapKlik);
+}
+
+function gemknapKlik() {
+	console.log("gemknapKlik!");
+
+	// Start knaplyd effekt_bank
+	$("#game_start")[0].play();
+
+	setTimeout(gemKonsekvens, 500);
+}
+
+function delknapKlik() {
+	console.log("delknapKlik!");
+
+	// Start knaplyd effekt_bank
+	$("#game_start")[0].play();
+
+	setTimeout(delKonsekvens, 500);
+}
+
+
+function gemKonsekvens() {
+	console.log("gemKonsekvens!");
+}
+
+function delKonsekvens() {
+	console.log("delKonsekvens!");
+
 }
