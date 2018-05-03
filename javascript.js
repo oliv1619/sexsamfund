@@ -7,7 +7,7 @@ $(window).on("load", sideLoad);
 function sideLoad() {
 	console.log("sideLoad!");
 
-	// vis startbillede
+	// vis/skjul start
 	$("#startbillede").addClass("vis");
 	$("#mobil_container").addClass("skjul");
 	$("#baggrund_side").addClass("skjul");
@@ -15,8 +15,11 @@ function sideLoad() {
 	$("#ogsaa_til_mig").addClass("skjul");
 	$("#delknap").addClass("skjul");
 	$("#gemknap").addClass("skjul");
-	$("#konsekvens_gem").addClass("skjul");
-	$("#konsekvens_del").addClass("skjul");
+	$("#konsekvens_gem_wrapper").addClass("skjul");
+	$("#konsekvens_del_wrapper").addClass("skjul");
+	$("#privatsnak").addClass("skjul");
+
+	$("#startknap").addClass("puls");
 
 	// gå til startbillede
 	startBillede();
@@ -45,6 +48,8 @@ function startknapKlik() {
 
 function eleverInd() {
 	console.log("eleverInd!");
+
+	$("#startknap").off("click", startknapKlik);
 
 	//	Startbillede fades
 	$("#startbillede").addClass("fadeout");
@@ -93,6 +98,7 @@ function alle_saetter_sig() {
 
 function lyd_mobil() {
 	console.log("lyd_mobil!")
+
 	$("#mobil")[0].play();
 	$("#anders_container").addClass("anders_mobil_ryster");
 
@@ -224,6 +230,9 @@ function mobilValg() {
 	$("#zara_container").removeClass("zara_vil_ha_possition");
 	$("#zara_container").addClass("zara_sidder_possition");
 
+	$("#brian_container").removeClass("brian_vil_ha_possition");
+	$("#brian_container").addClass("brian_sidder_possition");
+
 	$("#zoomframe").removeClass("venner_vil_ha_zoom");
 	$("#zoomframe").addClass("mobil_besked_zoom");
 
@@ -240,10 +249,13 @@ function mobilKnapper() {
 	$("#gemknap").removeClass("skjul");
 	$("#gemknap").addClass("vis");
 	$("#gemknap").addClass("gem_knap_placering");
+	$("#gemknap").addClass("knappuls")
+
 
 	$("#delknap").removeClass("skjul");
 	$("#delknap").addClass("vis");
 	$("#delknap").addClass("del_knap_placering");
+	$("#delknap").addClass("knappuls");
 
 	// Der er klikket på gem
 	$("#gemknap").on("click", gemknapKlik);
@@ -255,8 +267,11 @@ function mobilKnapper() {
 function gemknapKlik() {
 	console.log("gemknapKlik!");
 
+	$("#gemknap").off("click", gemknapKlik);
+	$("#delknap").off("click", delknapKlik)
+
 	// Start knaplyd effekt_bank
-	$("#game_start")[0].play();
+	$("#mobil")[0].play();
 
 	setTimeout(gemKonsekvens, 500);
 }
@@ -264,8 +279,11 @@ function gemknapKlik() {
 function delknapKlik() {
 	console.log("delknapKlik!");
 
+	$("#delknap").off("click", delknapKlik);
+	$("#gemknap").off("click", gemknapKlik);
+
 	// Start knaplyd effekt_bank
-	$("#game_start")[0].play();
+	$("#mobil")[0].play();
 
 	setTimeout(delKonsekvens, 500);
 }
@@ -273,9 +291,66 @@ function delknapKlik() {
 
 function gemKonsekvens() {
 	console.log("gemKonsekvens!");
+
+	$("#gemknap").removeClass("vis");
+	$("#gemknap").addClass("skjul");
+	$("#delknap").removeClass("vis");
+	$("#delknap").addClass("skjul");
+
+	$("#zoomframe").removeClass("mobil_besked_zoom");
+	$("#zoomframe").addClass("venner_vil_ha_zoom");
+
+	$("#baggrund").addClass("skjul");
+	$("#baggrund_side").removeClass("skjul");
+	$("#baggrund_side").addClass("vis");
+	$("#baggrund_side").addClass("baggrund_flip");
+
+	$("#anders_container").removeClass("anders_sidder_possition");
+	$("#anders_container").addClass("anders_konsekvens_possition");
+
+	$("#anders_sprite").removeClass("anders_mobil_frame");
+	$("#anders_sprite").addClass("anders_gem");
+
+	$("#konsekvens_gem_wrapper").removeClass("skjul");
+	$("#konsekvens_gem_wrapper").addClass("vis");
+	$("#konsekvens_gem_wrapper").addClass("konsekvens_grow");
+
+	setTimeout(privatSnakLink, 5000);
 }
 
 function delKonsekvens() {
 	console.log("delKonsekvens!");
 
+	$("#gemknap").removeClass("vis");
+	$("#gemknap").addClass("skjul");
+	$("#delknap").removeClass("vis");
+	$("#delknap").addClass("skjul");
+
+	$("#zoomframe").removeClass("mobil_besked_zoom");
+	$("#zoomframe").addClass("venner_vil_ha_zoom");
+
+	$("#baggrund").addClass("skjul");
+	$("#baggrund_side").removeClass("skjul");
+	$("#baggrund_side").addClass("vis");
+	$("#baggrund_side").addClass("baggrund_flip");
+
+	$("#anders_container").removeClass("anders_sidder_possition");
+	$("#anders_container").addClass("anders_konsekvens_possition");
+
+	$("#anders_sprite").removeClass("anders_mobil_frame");
+	$("#anders_sprite").addClass("anders_del");
+
+	$("#konsekvens_del_wrapper").removeClass("skjul");
+	$("#konsekvens_del_wrapper").addClass("vis");
+	$("#konsekvens_del_wrapper").addClass("konsekvens_grow");
+
+	setTimeout(privatSnakLink, 5000);
+}
+
+function privatSnakLink() {
+	console.log("privatSnakLink!");
+
+	$("#privatsnak").removeClass("skjul");
+	$("#privatsnak").addClass("vis");
+	$("#privatsnak").addClass("privatsnak_slide");
 }

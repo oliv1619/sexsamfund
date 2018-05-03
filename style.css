@@ -93,18 +93,6 @@ body {
 	z-index: 40;
 }
 
-#starttekst {
-	width: 50vw;
-	height: 20vw;
-	top: 10vw;
-	left: 28vw;
-	font-size: 5vw;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: bold;
-	position: absolute;
-	z-index: 40;
-}
-
 #startknap {
 	width: 15vw;
 	height: 5vw;
@@ -117,15 +105,36 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	text-transform: uppercase;
 	font-weight: bold;
-	background-color: #000;
+	background-color: #1f2532;
 	position: absolute;
 	z-index: 40;
 	border-radius: 2vw;
+	outline: none;
 }
 
 #startknap:hover {
-	background-color: #ffce00;
-	color: #000;
+	background-color: #ff9207;
+	color: #1f2532;
+}
+
+.puls {
+	animation-name: puls_kf;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-fill-mode: forwards;
+}
+
+@keyframes puls_kf {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.9);
+	}
+	100% {
+		transform: scale(1);
+	}
 }
 
 .fadeout {
@@ -223,7 +232,6 @@ body {
 
 #anders_container {
 	position: absolute;
-	z-index: 30;
 	pointer-events: none;
 }
 
@@ -235,6 +243,7 @@ body {
 }
 
 .anders_move_right {
+	z-index: 30;
 	animation-name: anders_move_right_kf;
 	animation-duration: 6s;
 	animation-iteration-count: 1;
@@ -255,6 +264,7 @@ body {
 }
 
 .anders_walk_cycle {
+	z-index: 30;
 	animation-name: anders_walk_cycle_kf;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
@@ -274,9 +284,10 @@ body {
 .anders_sidder_possition {
 	left: 16vw;
 	bottom: 0.27vw;
+	z-index: 30;
 }
 
-#anders_sit {
+.anders_sit {
 	background-position: 0 0;
 }
 
@@ -536,8 +547,8 @@ body {
 }
 
 .send_til_mig_vis {
-	top: 23vw;
-	left: 47vw;
+	top: 20vw;
+	left: 38vw;
 	transform: scale(3);
 	z-index: 60;
 	animation-name: send_til_mig_vis_kf;
@@ -601,27 +612,10 @@ body {
 	}
 }
 
-
 /*- - - - - scene mobilvalg - - - - - */
 
 .vis_nedtonet_mobil {
 	background-position: 0 -200%;
-}
-
-.del_knap_placering {
-	width: 10vw;
-	height: 10vw;
-	background-image: url(images/delknap.svg);
-	background-size: 100%;
-	position: absolute;
-	z-index: 1;
-	top: 22vw;
-	left: 56vw;
-	transform: rotate(13deg)
-}
-
-.del_knap_placering:hover {
-	background-image: url(images/delknap_hover.svg);
 }
 
 .gem_knap_placering {
@@ -630,40 +624,238 @@ body {
 	background-image: url(images/gemknap.svg);
 	background-size: 100%;
 	position: absolute;
-	z-index: 1;
-	top: 19vw;
-	left: 44vw;
-	transform: rotate(13deg)
+	z-index: 60;
+	top: 19.2vw;
+	left: 43.9vw;
+	outline: none;
 }
 
 .gem_knap_placering:hover {
 	background-image: url(images/gemknap_hover.svg);
 }
 
-/*- - - - - scene konsekvens gem - - - - - */
-
-#konsekvens_gem {
-	width: 50vw;
-	height: 20vw;
-	top: 10vw;
-	left: 28vw;
-	font-size: 5vw;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: bold;
+.del_knap_placering {
+	width: 10vw;
+	height: 10vw;
+	background-image: url(images/delknap.svg);
+	background-size: 100%;
 	position: absolute;
-	z-index: 40;
+	z-index: 60;
+	top: 22vw;
+	left: 55.5vw;
+	outline: none;
 }
 
-/*- - - - - scene konsekvens gem - - - - - */
+.del_knap_placering:hover {
+	background-image: url(images/delknap_hover.svg);
+}
 
-#konsekvens_del {
-	width: 50vw;
-	height: 20vw;
-	top: 10vw;
-	left: 28vw;
-	font-size: 5vw;
+.knappuls {
+	animation-name: knappuls_kf;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-fill-mode: forwards;
+}
+
+@keyframes knappuls_kf {
+	0% {
+		transform: scale(1) rotate(13deg);
+	}
+	50% {
+		transform: scale(0.9) rotate(13deg);
+	}
+	100% {
+		transform: scale(1) rotate(13deg);
+	}
+}
+
+/*- - - - - scene konsekvens gem & del - - - - - */
+
+.baggrund_flip {
+	transform: scaleX(-1);
+}
+
+.anders_konsekvens_possition {
+	left: 13vw;
+	bottom: -19vw;
+	z-index: 60;
+	transform: scale(2.8) scaleX(-1);
+}
+
+.anders_front {
+	background-position: 0 -100%;
+}
+
+.anders_gem {
+	background-position: -100% -100%;
+}
+
+.anders_del {
+	background-position: -200% -100%;
+}
+
+#konsekvens_gem_wrapper {
+	width: 40vw;
+	height: 33vw;
+	top: 7vw;
+	left: 45vw;
+	font-size: 4.5vw;
 	font-family: 'Open Sans', sans-serif;
-	font-weight: bold;
 	position: absolute;
 	z-index: 40;
+	background-color: #fff;
+	padding: 5vw;
+	border-radius: 10vw;
+}
+
+#konsekvens_gem_wrapper .rubrik {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#konsekvens_gem_wrapper .text {
+	font-size: 3vw;
+	padding-top: 2vw;
+	font-weight: normal;
+}
+
+#konsekvens_del_wrapper {
+	width: 40vw;
+	height: 33vw;
+	top: 7vw;
+	left: 45vw;
+	font-size: 4.5vw;
+	font-family: 'Open Sans', sans-serif;
+	position: absolute;
+	z-index: 40;
+	background-color: #fff;
+	padding: 5vw;
+	border-radius: 10vw;
+}
+
+#konsekvens_del_wrapper .rubrik {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#konsekvens_del_wrapper .text {
+	font-size: 3vw;
+	padding-top: 2vw;
+	font-weight: normal;
+}
+
+.konsekvens_grow {
+	animation-name: konsekvens_grow_kf;
+	animation-duration: 4s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes konsekvens_grow_kf {
+	0% {
+		transform: scale(0.6);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+/*- - - - - scene privatsnak - - - - - */
+
+#privatsnak {
+	width: 100vw;
+	height: 56.5vw;
+	background-color: #1f2532;
+	background-size: 100%;
+	position: absolute;
+	z-index: 70;
+	font-family: 'Open Sans', sans-serif;
+	color: #fff;
+}
+
+#privatsnak .rubrik {
+	position: absolute;
+	top: 19vw;
+	left: 20vw;
+	font-size: 3.75vw;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#privatsnak .text {
+	position: absolute;
+	top: 23vw;
+	left: 20vw;
+	font-size: 1.75vw;
+	padding-top: 2vw;
+	font-weight: normal;
+}
+
+.privatsnak_slide {
+	top: -60vw;
+	left: 0;
+	animation-name: privatsnak_slide_kf;
+	animation-duration: 2s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes privatsnak_slide_kf {
+	0% {
+		top: -60vw;
+	}
+	100% {
+		top: 0;
+	}
+}
+
+#privatsnak_logo {
+	width: 13.43vw;
+	height: 9.73vw;
+	top: 7vw;
+	left: 17.5vw;
+	background-image: url(images/logo-privatsnak.png);
+	background-size: 100%;
+	position: absolute;
+	pointer-events: none;
+}
+
+#privatsnak_logo:hover {
+	transform: scale(1.2);
+}
+
+#sexsamfund_logo {
+	width: 5.20vw;
+	height: 10.41vw;
+	bottom: 5vw;
+	right: 4vw;
+	background-image: url(images/logo-sexogsamfund.png);
+	background-size: 100%;
+	position: absolute;
+	pointer-events: none;
+}
+
+a {
+	color: #3b759f;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:link {
+	color: #ff9207;
+}
+
+a:visited {
+	color: #ff9207;
+}
+
+a:hover {
+	color: #fff;
+}
+
+a:active {
+	color: #fff;
 }
