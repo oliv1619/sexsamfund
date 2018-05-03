@@ -455,7 +455,7 @@ body {
 
 .zara_slide {
 	animation-name: zara_slide_kf;
-	animation-duration: 1s;
+	animation-duration: 1.5s;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: forwards;
@@ -487,7 +487,7 @@ body {
 
 .brian_slide {
 	animation-name: brian_slide_kf;
-	animation-duration: 1s;
+	animation-duration: 1.5s;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: forwards;
@@ -525,6 +525,6 @@ body {
 
 /*- - - - - scene mobilvalg - - - - - */
 
-.vis_tommobil {
+.vis_tom_mobil {
 	background-position: 0 -200%;
 }
