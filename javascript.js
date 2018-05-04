@@ -315,7 +315,7 @@ function gemKonsekvens() {
 	$("#konsekvens_gem_wrapper").addClass("vis");
 	$("#konsekvens_gem_wrapper").addClass("konsekvens_grow");
 
-	setTimeout(privatSnakLink, 5000);
+	setTimeout(privatSnakLink, 8000);
 }
 
 function delKonsekvens() {
@@ -344,7 +344,7 @@ function delKonsekvens() {
 	$("#konsekvens_del_wrapper").addClass("vis");
 	$("#konsekvens_del_wrapper").addClass("konsekvens_grow");
 
-	setTimeout(privatSnakLink, 5000);
+	setTimeout(privatSnakLink, 8000);
 }
 
 function privatSnakLink() {
